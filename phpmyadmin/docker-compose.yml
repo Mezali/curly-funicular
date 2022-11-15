@@ -1,0 +1,18 @@
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: "phpmyadmin"
+    environment:
+      PMA_HOST: 20.226.83.79:3306
+      PMA_PORT: 3306
+      LETSENCRYPT_HOST: phpmyadmin.sgpo.online
+      LETSENCRYPT_EMAIL: danieldelimamazali@hotmail.com
+      VIRTUAL_HOST: phpmyadmin.sgpo.online  
+    expose:
+      - 80
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+

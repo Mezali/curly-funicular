@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  banco:
+    image: mariadb:latest
+    container_name: "banco"
+    init: true
+    restart: "always"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: banco
+      MYSQL_USER: userBanco
+      MYSQL_PASSWORD: 123

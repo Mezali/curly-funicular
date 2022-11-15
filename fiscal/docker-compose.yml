@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  php:
+    container_name: "Fiscal"
+    build:
+      context: ./bin/php
+    expose:
+      - 80
+      - 443
+    volumes:
+      - ./www:/var/www/html
+    environment:
+      LETSENCRYPT_HOST: fiscal.sgpo.online
+      LETSENCRYPT_EMAIL: danieldelimamazali@hotmail.com
+      VIRTUAL_HOST: fiscal.sgpo.online
+      
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
